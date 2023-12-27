@@ -78,6 +78,8 @@ export const Login = async (req, res, next) => {
     const options = {
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       httpOnly: true,
+      secure:true,
+        sameSite:"none"
     };
     // console.log("checkpoint 3");
     res.status(200).cookie("token", token, options).json({
@@ -309,6 +311,8 @@ export const logout = async (req, res, next) => {
       .cookie("token", null, {
         expires: new Date(Date.now()),
         httpOnly: true,
+        secure:true,
+        sameSite:"none"
       })
       .json({
         success: true,
