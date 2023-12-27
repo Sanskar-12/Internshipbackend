@@ -54,6 +54,12 @@ app.get("/api/:month", (req, res) => {
 
   cron.schedule(('* * * * * *'),moveToOrderArchive)
 
+  app.get("/",(req,res)=>{
+    res.send({
+      message:"hello"
+    })
+  })
+
 app.use("/api/v1", router);
 app.use("/api/v1", productRouter);
 app.use("/api/v1", departmentRouter);
